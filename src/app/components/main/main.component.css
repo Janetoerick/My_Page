@@ -1,0 +1,125 @@
+.menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+}
+  
+.toggle-theme {
+    width: 40px;
+    height: 20px;
+    background: var(--purple);
+    border-radius: 10px;
+ }
+  
+main {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: auto;
+}
+  
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+  
+.hero .content {
+    flex: 1;
+    min-width: 280px;
+}
+  
+.hero h2 {
+    font-size: 2rem;
+}
+  
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--purple);
+}
+  
+.hero h1 span {
+    color: #8a2be2;
+}
+  
+.hero p {
+    margin: 0.5rem 0 1.5rem;
+    color: #ccc;
+}
+  
+.buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+  
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+  
+.btn.purple {
+    background: var(--gradient);
+    color: white;
+}
+  
+.btn.outline {
+    border: 2px solid white;
+    color: white;
+}
+  
+.btn:hover {
+    opacity: 0.9;
+}
+  
+.profile-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+  
+.profile-img img {
+    max-width: 250px;
+    border-radius: 50%;
+    background: var(--gradient);
+    padding: 0.5rem;
+}
+  
+.about {
+    margin-top: 3rem;
+    text-align: center;
+}
+  
+.about h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+  
+.about p {
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 1rem;
+}
+  
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .buttons {
+      justify-content: center;
+    }
+  
+    .profile-img {
+      margin-top: 2rem;
+    }
+}

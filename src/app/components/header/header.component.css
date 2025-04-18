@@ -1,0 +1,24 @@
+header {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .toggle-theme {
+    width: 40px;
+    height: 20px;
+    background: var(--purple);
+    border-radius: 10px;
+  }
