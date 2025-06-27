@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: 🛠️ Build do projeto Angular
-        run: npx ng build --configuration=production --base-href=/My_page_portfolio/
+        run: npx ng build --configuration=production --base-href=/My_Page/
 
       - name: 🚀 Deploy para GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
