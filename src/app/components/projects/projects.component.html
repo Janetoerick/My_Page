@@ -1,0 +1,15 @@
+<section class="projects-container">
+  <h2 class="section-title">Projetos</h2>
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <div class="card-header">
+        <h3>{{ project.name }}</h3>
+      </div>
+      <p class="description">{{ project.description }}</p>
+      <div class="tech-stack">
+        <span class="tech" *ngFor="let tech of project.technologies">{{ tech }}</span>
+      </div>
+      <a [href]="project.github" target="_blank" class="github-link">Ver no GitHub →</a>
+    </div>
+  </div>
+</section>
