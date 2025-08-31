@@ -119,25 +119,28 @@ main {
 .btn:hover {
     opacity: 0.9;
 }
-  
+ 
 .profile-img {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  position: relative;
+  display: inline-block;
 }
-  
+
 .profile-img img {
-    max-width: 250px;
-    border-radius: 50%;
-    background: var(--gradient);
-    padding: 0.5rem;
+  max-width: 250px;
+  border-radius: 50%;
+  border: 2px solid var(--purple);
+  background-clip: padding-box;
+  z-index: 1;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-  
-/* .about {
-    margin-top: 3rem;
-    text-align: center;
-} */
+
+.profile-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+
 .about {
   padding: 4rem 2rem;
   background-color: #ffffff;
