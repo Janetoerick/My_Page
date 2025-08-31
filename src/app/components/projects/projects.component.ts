@@ -17,7 +17,7 @@ export class ProjectsComponent {
       github: 'https://github.com/Janetoerick/Sistema-de-reserva-back-end/tree/project2'
     },
     {
-      name: 'Sistema de Controle de Taregas',
+      name: 'Sistema de Controle de Tarefas',
       description: 'Aplicativo full-stack para gerenciamento de tarefas com Spring Boot e Angular.',
       technologies: ['Spring Boot', 'Spring Security', 'Hibernate', 'MySQL', 'Angular'],
       github: 'https://github.com/Janetoerick/ControleTarefas_backend'
