@@ -1,5 +1,7 @@
 :root {
   --bg: #0d0c1d;
+  --gray-light: #f4f4f9;
+  --text-dark: #333333;
   --text: #ffffff;
   --purple: #8a2be2;
   --gradient: linear-gradient(135deg, #a855f7, #6b21a8);
@@ -14,7 +16,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
 html {

@@ -1,9 +1,9 @@
-<header>
-    <div class="container">
-      <button class="menu">&#9776;</button>
-      <h1>Portfólio</h1>
-      <!-- <div class="toggle-theme"></div> -->
-       <div></div>
-    </div>
-  </header>
-
+<div class="container">
+    <button class="menu" (click)="toggleMobileMenu()">&#9776;</button>
+    <ul class="menu-optitions" [class.open]="isMobileMenuOpen">
+        <li><a (click)="scrollToSection('inicio')" [class.active]="activeSection === 'inicio'">Início</a></li> 
+        <li><a (click)="scrollToSection('sobre')" [class.active]="activeSection === 'sobre'">Sobre Mim</a></li>
+        <li><a (click)="scrollToSection('habilidades')" [class.active]="activeSection === 'habilidades'">Habilidades</a></li>
+        <li><a (click)="scrollToSection('projetos')" [class.active]="activeSection === 'projetos'">Projetos</a></li>    
+    </ul>
+</div>
