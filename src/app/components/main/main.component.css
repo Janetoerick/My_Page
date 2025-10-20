@@ -100,27 +100,34 @@ main {
     color: #ccc;
 }
   
+.buttons .btn {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.1s;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600; 
+    font-size: 1.1rem;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid transparent; 
+}
+
 .buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
   
-.btn {
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-  
-.btn.purple {
-    background: var(--purple);
+.buttons .btn.purple {
+    background-color: var(--purple);
     color: var(--text);
+    border-color: var(--purple);
 }
 
 .buttons .btn.purple:hover {
-    background-color: #6b21a8;
+    background-color: #6b21a8; 
+    border-color: #6b21a8;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); 
 }
 
@@ -131,15 +138,23 @@ main {
 }
   
 .buttons .btn.outline {
-    border: solid white;
+    border: 2px solid white;
     background-color: transparent;
     color: var(--text);
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: none;
+    transition: all 0.3s ease;
 }
 
 .buttons .btn.outline:hover {
     background-color: var(--purple);
     color: var(--text);
-    border: solid var(--purple);
+    border-color: var(--purple);
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); 
 }
 
