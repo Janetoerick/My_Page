@@ -22,12 +22,32 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1500px;
+  min-width: 400px;
   width: 100%;
   margin: 40px auto 0 auto;
+
 }
+
+/* --- Media Queries para Responsividade --- */
+
+/* 1. Telas de Tablet (2 colunas) */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+/* 2. Telas de Celular (1 coluna) */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
+/* ------------------------------------------- */
 
 .project-card {
   background-color: #1a1a2e;
@@ -36,6 +56,16 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-left: 5px solid var(--purple);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content-body {
+    flex-grow: 1; 
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-card:hover {
@@ -79,4 +109,38 @@
   color: #c084fc;
 }
 
+.features-section {
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.3); 
+}
 
+.features-title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: var(--purple);
+}
+
+.features-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.feature-item {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.feature-item::before {
+  content: "✓"; 
+  color: var(--purple);
+  font-weight: bold;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
