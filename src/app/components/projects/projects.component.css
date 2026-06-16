@@ -1,146 +1,99 @@
 .projects-container {
   background-color: var(--gray-light);
-  color: #111111;
   padding: 6rem 2rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  align-items: start; 
+}
+
+.project-card {
+  position: relative;
+  background-color: #1a1a2e;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-left: 4px solid var(--purple);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.project-card:hover {
+  z-index: 10;
+  transform: scale(1.08, 1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #1a1a2e;
+  font-weight: 700;
 }
 
-/* --- ESTILO DOS CARDS DE PROJETOS --- */
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1500px;
-  min-width: 400px;
-  width: 100%;
-  margin: 40px auto 0 auto;
-
-}
-
-/* --- Media Queries para Responsividade --- */
-
-/* 1. Telas de Tablet (2 colunas) */
-@media (max-width: 1200px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-/* 2. Telas de Celular (1 coluna) */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(1, 1fr); 
-  }
-}
-
-/* ------------------------------------------- */
-
-.project-card {
-  background-color: #1a1a2e;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  border-left: 5px solid var(--purple);
+.tech-top-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
   display: flex;
-  flex-direction: column;
+  gap: 10px;
 }
 
-.card-content-body {
-    flex-grow: 1; 
+.tech-top-right i {
+  color: var(--purple); /* Cor do ícone */
+  font-size: 24px;      /* Tamanho do ícone */
+}
+
+.tech-icon img {
+  width: 20px;
+  filter: brightness(0) invert(1);
+}
+
+h3 { color: var(--purple); font-size: 1.1rem; margin-bottom: 0.5rem; padding-right: 60px; }
+.description { font-size: 0.85rem; color: #ccc; line-height: 1.4; }
+
+.hover-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .hover-content {
+  opacity: 1;
+  max-height: 50px;
+  margin-top: 1rem;
+}
+
+.github-link { color: var(--purple); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1.2rem;
+  }
+  
+  .card-header {
+    padding-right: 0; /* Remove o padding lateral */
     margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+  }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 25px rgba(138, 43, 226, 0.5);
-}
-
-.card-header h3 {
-  margin: 0 0 0.5rem;
-  color: var(--purple);
-}
-
-.description {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.tech-stack {
-  margin-bottom: 1rem;
-}
-
-.tech {
-  display: inline-block;
-  background: var(--gradient);
-  color: white;
-  padding: 0.3rem 0.6rem;
-  margin: 0.2rem;
-  border-radius: 0.5rem;
-  font-size: 0.8rem;
-}
-
-.github-link {
-  color: var(--purple);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.github-link:hover {
-  color: #c084fc;
-}
-
-.features-section {
-  margin-bottom: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(138, 43, 226, 0.3); 
-}
-
-.features-title {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-  color: var(--purple);
-}
-
-.features-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.feature-item {
-  font-size: 0.9rem;
-  color: #e0e0e0;
-  margin-bottom: 0.4rem;
-  display: flex;
-  align-items: flex-start;
-  line-height: 1.4;
-}
-
-.feature-item::before {
-  content: "✓"; 
-  color: var(--purple);
-  font-weight: bold;
-  margin-right: 0.6rem;
-  flex-shrink: 0;
+  .tech-top-right {
+    position: relative; /* Remove a sobreposição absoluta */
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    justify-content: flex-start; /* Alinha os ícones à esquerda */
+  }
 }

@@ -1,28 +1,18 @@
-<section class="projects-container" >
+<section class="projects-container">
   <h2 class="section-title">Projetos</h2>
   <div class="projects-grid">
     <div class="project-card" *ngFor="let project of projects">
-      <div class="card-header">
-        <h3>{{ project.name }}</h3>
-      </div>
       
-      <div class="card-content-body"> 
-          <p class="description">{{ project.description }}</p>
-          
-          <div class="features-section" *ngIf="project.features && project.features.length > 0">
-            <h4 class="features-title">Recursos Chave:</h4>
-            <ul class="features-list">
-              <li class="feature-item" *ngFor="let feature of project.features">
-                {{ feature }}
-              </li>
-            </ul>
-          </div>
-          
-          <div class="tech-stack">
-            <span class="tech" *ngFor="let tech of project.technologies">{{ tech }}</span>
-          </div>
+      <div class="tech-top-right">
+        <i *ngFor="let tech of project.technologies | slice:0:3" [class]="tech.icon"></i>
       </div>
-      <a [href]="project.github" target="_blank" class="github-link">Ver no GitHub →</a>
+
+      <h3>{{ project.name }}</h3>
+      <p class="description">{{ project.description }}</p>
+
+      <div class="hover-content">
+        <a [href]="project.github" target="_blank" class="github-link">Ver repositório completo →</a>
+      </div>
     </div>
   </div>
 </section>
