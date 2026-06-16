@@ -7,34 +7,6 @@
   align-items: center;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  width: 100%;
-  align-items: start; 
-}
-
-.project-card {
-  position: relative;
-  background-color: #1a1a2e;
-  padding: 1.5rem;
-  border-radius: 0.8rem;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-left: 4px solid var(--purple);
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-}
-
-.project-card:hover {
-  z-index: 10;
-  transform: scale(1.08, 1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-}
-
 .section-title {
   text-align: center;
   font-size: 2.5rem;
@@ -43,57 +15,184 @@
   font-weight: 700;
 }
 
-.tech-top-right {
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Tamanho padrão fixo e isolado para todos os cards */
+.project-card {
+  position: relative;
+  background-color: #1a1a2e;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  border-left: 4px solid var(--purple);
+  height: 240px; /* Aumentado ligeiramente para acomodar o texto menor e o rodapé livre */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Mantém a animação contida dentro das bordas do card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Área de cabeçalho e descrição do card */
+.card-header-body {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Faz o título e descrição diminuírem e irem pro fundo dando foco aos recursos */
+.project-card:hover .card-header-body {
+  transform: scale(0.92);
+  opacity: 0.15;
+}
+
+.docker-badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 10; /* Sempre no topo */
+}
+
+.docker-badge i {
+  color: #2496ed;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--purple);
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  padding-right: 35px;
+  transition: font-size 0.3s ease;
+}
+
+/* Faz o título ficar menorzinho no hover conforme pedido */
+.project-card:hover h3 {
+  font-size: 0.95rem;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* --- RODAPÉ FIXO --- */
+.card-footer {
+  margin-top: auto;
+  background-color: #1a1a2e; /* Mesma cor do card para bloquear visualmente a cortina atrás */
+  z-index: 5; /* Garante que fique ACIMA da cortina flutuante */
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Animação horizontal das Tecnologias */
+.tech-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+}
+
+.tech-container i {
+  color: var(--gray-light);
+  font-size: 1.4rem;
+}
+
+.tech-visible {
   display: flex;
   gap: 10px;
 }
 
-.tech-top-right i {
-  color: var(--purple); /* Cor do ícone */
-  font-size: 24px;      /* Tamanho do ícone */
-}
-
-.tech-icon img {
-  width: 20px;
-  filter: brightness(0) invert(1);
-}
-
-h3 { color: var(--purple); font-size: 1.1rem; margin-bottom: 0.5rem; padding-right: 60px; }
-.description { font-size: 0.85rem; color: #ccc; line-height: 1.4; }
-
-.hover-content {
+.tech-hidden-flow {
+  display: flex;
+  gap: 10px;
+  max-width: 0;
   opacity: 0;
-  max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: max-width 0.4s ease, opacity 0.3s ease;
 }
 
-.project-card:hover .hover-content {
+.project-card:hover .tech-hidden-flow {
   opacity: 1;
-  max-height: 50px;
-  margin-top: 1rem;
+  max-width: 200px;
 }
 
-.github-link { color: var(--purple); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+.github-link {
+  position: relative;
+  color: var(--purple);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-block;
+  z-index: 6; /* Totalmente clicável */
+}
 
-@media (max-width: 480px) {
-  .project-card {
-    padding: 1.2rem;
-  }
+.github-link:hover {
+  color: #a855f7;
+}
+
+/* --- CORTINA QUE VEM DE CIMA (SLIDE-DOWN OVERLAY) --- */
+.card-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 165px; /* Deixa exatamente os ~75px de baixo livres para o rodapé e botão do GitHub */
+  background-color: #1a1a2e;
+  padding: 1.2rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   
-  .card-header {
-    padding-right: 0; /* Remove o padding lateral */
-    margin-bottom: 1rem;
-  }
+  /* Estado Inicial: Escondido totalmente acima da linha do card */
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 3; /* Fica abaixo do badge do Docker e do rodapé fixo */
+}
 
-  .tech-top-right {
-    position: relative; /* Remove a sobreposição absoluta */
-    top: 0;
-    right: 0;
-    margin-bottom: 1rem;
-    justify-content: flex-start; /* Alinha os ícones à esquerda */
-  }
+/* Quando o mouse entra no card, a cortina desce cobrindo apenas a área do texto antigo */
+.project-card:hover .card-overlay-top {
+  transform: translateY(0);
+}
+
+.overlay-title {
+  color: var(--purple);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.6rem 0;
+  border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+  padding-bottom: 4px;
+}
+
+.overlay-features-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.overlay-feature-item {
+  font-size: 0.82rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.overlay-feature-item::before {
+  content: "⚡";
+  margin-right: 6px;
+  color: var(--purple);
+  font-size: 0.75rem;
 }
